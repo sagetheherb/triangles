@@ -17,8 +17,8 @@ package sage.hw2;
  * centroid, orthocenter and centroid. The program will then calculate 
  * the value of the biggest distance between the points. Then two of 
  * the points will be used to create a line that pass through them. 
- * Then the third point's distance to that line will be mesured. 
- * TODO enter resorces used to create program
+ * Then the third point's distance to that line will be measured. 
+ * TODO enter resources used to create program
  */
 
 public class TrianglePoints {
