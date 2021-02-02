@@ -32,5 +32,8 @@ public class TrianglePoints {
         point point3 = new point(1,1);
         triangle triangle = new triangle(point1, point2, point3);
     }
+    public Boolean checkInput() {
+        return true;
+}
   
 }
