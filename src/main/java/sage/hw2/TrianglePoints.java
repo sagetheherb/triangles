@@ -24,7 +24,13 @@ package sage.hw2;
 public class TrianglePoints {
     
      public static void main(String[] args) {
-        
+        /*
+         *to do write the input output
+         */
+        point point1 = new point(1,1);
+        point point2 = new point(1,1);
+        point point3 = new point(1,1);
+        triangle triangle = new triangle(point1, point2, point3);
     }
   
 }
