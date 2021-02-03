@@ -22,9 +22,25 @@ package sage.hw2;
  */
 
 public class TrianglePoints {
-    
-     public static void main(String[] args) {
-        
+    static int calCentroid(int a, int b, int c) {
+        return ((a+b+c)/3);
     }
+     public static void main(String[] args) {
+         int x1=2;
+         int y1=3;
+
+         int x2=-1;
+         int y2= 9;
+
+         int x3 = 6;
+         int y3= -4;
+
+         int centeroid_X = calCentroid(x1,x2,x3);
+         int centeroid_Y = calCentroid(y1,y2,y3);
+
+         System.out.println("Orthocenter coordinates: ("+ centeroid_X + "," +centeroid_Y +")" );
+
+
+     }
   
 }
