@@ -21,19 +21,53 @@ package sage.hw2;
  * TODO enter resources used to create program
  */
 
+import java.util.Scanner;
+import java.util.ArrayList; 
+
+
 public class TrianglePoints {
     
      public static void main(String[] args) {
-        /*
-         *to do write the input output
+        System.out.println("This program will prompt the user for three points that form a "
+        + "triangle and if it is not colinear it will calculate the triangle"
+        + "centroid, orthocenter and centroid. The program will then calculate "
+        + "the value of the biggest distance between the points. Then two of "
+        + "the points will be used to create a line that pass through them. "
+        + "Then the third point distance to that line will be measured."); 
+        
+        Scanner in = new Scanner(System.in);
+        
+        ArrayList<Point> points = new ArrayList<>();
+        int point_counter = 0;
+        while (true){
+           
+            System.out.println("please enter a number for a point");
+            double tempX = in.nextDouble();
+            System.out.println("please enter a number for a point");
+            double tempY = in.nextDouble();
+            
+            Point point = new Point(tempX, tempY);
+            points.add(point);
+            point_counter++;
+            if(point_counter >= 3){
+                break;
+            }
+         
+      
+        Triangle triangle = new Triangle(points.get(0), points.get(1), points.get(2));
+        if (triangle.isColinear()){
+            System.out.print("the points you have entered are colinear sorry");
+            in.nextLine();
+            System.exit(0);
+        }
+        /**
+         * to do print out the three points 
          */
-        point point1 = new point(1,1);
-        point point2 = new point(1,1);
-        point point3 = new point(1,1);
-        triangle triangle = new triangle(point1, point2, point3);
+        }
+       
+       
+       
     }
-    public Boolean checkInput() {
-        return true;
-}
+  
   
 }
