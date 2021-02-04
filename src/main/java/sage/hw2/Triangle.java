@@ -10,43 +10,84 @@ package sage.hw2;
  * @author sagee
  */
 public class Triangle {
-    private Point point1;
-    private Point point2;
-    private Point point3;
+    private Point pointA;
+    private Point pointB;
+    private Point pointC;
+    private Point orthocenter;
+    private Point centroid;
+    private Point circumventer;
     
 
-    public Triangle(Point point1, Point point2, Point point3) {
+    public Triangle(Point pointA, Point pointB, Point pointC) {
         
-        this.point1 = point1;
-        this.point2 = point2;
-        this.point3 = point3;
+        this.pointA = pointA;
+        this.pointB = pointB;
+        this.pointC = pointC;
+        calculateOrthocenter();
+        //calculateCentroid();
+        //calculateCircumventer();
         
-    public point getCentroid(){
+    }
+        
+    private void calculateCentroid(){
         /*
         TODO make this
         erosh
         */
     }
-    public point getCircumvented(){
+    private void calculateCircumventer(){
         /*
         TODO make this 
         erosh
         */
     }
-    public point getOrthocenter(){
-        /*
-        sage
-        TODO make this 
-        */
+    private void calculateOrthocenter(){
+       
+        double slopeBC = (pointC.getY() - pointB.getY())/(pointC.getX() - pointB.getX());
+        double slopeAC = (pointC.getY() - pointA.getY())/(pointC.getX() - pointA.getX());
+        double slopeAB = (pointB.getY() - pointA.getY())/(pointB.getX() - pointA.getX());
+        
+        double slopeAD = -1.0/slopeBC; // -1/slope = perpendicular 
+        double slopeCF = -1.0/slopeAB;
+        
+        double yInterceptAD = (pointA.getY() - (slopeAD * pointA.getX())); // b = y -mx
+        double yInterceptCF = (pointC.getY() - (slopeCF * pointC.getX())); // b = y -mx
+      
+     
+        double x = (yInterceptCF - yInterceptAD) / (slopeAD - slopeCF);
+        double y = slopeAD * x + yInterceptAD;
+        
+        Point point = new Point(x,y);
+        this.orthocenter = point;
+        
+       
     }
-    public boolean isColinear(){
-        return true; 
+    public Point getOrthocenter(){
+        
+        return this.orthocenter;
+        
+    }
+     public Point getCentroid(){
+         
+        return this.centroid;
+        
+    }
+    public Point getCircumventer(){
+        
+        return this.circumventer;
+    }
+        
+    public boolean isCollinear(){
+        return false; 
         
     }
     public boolean isEquilateral(){
-        /*
-        sage
-        */
+        return (this.centroid.getX() == this.circumventer.getX()
+                && this.circumventer.getX() == this.orthocenter.getX()
+                && this.centroid.getY() == this.circumventer.getY()
+                && this.circumventer.getY() == this.orthocenter.getY());
+               
+
     }
 
    
