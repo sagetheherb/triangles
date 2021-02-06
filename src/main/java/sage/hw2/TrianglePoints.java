@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package sage.hw2;
 
 /**
@@ -39,23 +35,34 @@ public class TrianglePoints {
         
         ArrayList<Point> points = new ArrayList<>();
         int point_counter = 0;
+        //this loop takes in three points from the user
         while (true){
-           
-            System.out.println("please enter a number for a point");
-            double tempX = in.nextDouble();
-            System.out.println("please enter a number for a point");
-            double tempY = in.nextDouble();
-            
-            Point point = new Point(tempX, tempY);
-            System.out.print(point.getX() + "x value");
-            System.out.print(point.getY() + "y value");
-            points.add(point);
-            point_counter++;
-            if(point_counter >= 3){
-                break;
+            try {
+                double tempX = 0.0;
+                double tempY = 0.0;
+                System.out.println(" please enter a number for a point");
+                tempX = in.nextDouble();
+                System.out.println(" please enter a number for a point");
+                tempY = in.nextDouble();
+                Point point = new Point(tempX, tempY);
+                System.out.println(point.getX() + " x value");
+                System.out.println(point.getY() + " y value");
+                points.add(point);
+                point_counter++;
+                
             }
+            
+            catch(Exception InputMismatchException) {
+                System.out.println(" please enter a decimal number i.e. 1.2");
+                in.next();
+            }
+            
+        if(point_counter >= 3){
+            break;
+        }
          
         }
+        
         Triangle triangle = new Triangle(points.get(0), points.get(1), points.get(2));
         if (triangle.isCollinear()){
             System.out.print("the points you have entered are colinear sorry");
@@ -64,6 +71,9 @@ public class TrianglePoints {
         }
 
         System.out.print(triangle.getOrthocenter().getX() + "," + triangle.getOrthocenter().getY() + " is the orthocenter");
+        //System.out.print(triangle.getCircumventer().getX() + "," + triangle.getCircumventer().getY() + " is the circumventer");
+        //System.out.print(triangle.getCentroid().getX() + "," + triangle.getCentroid().getY() + " is the centroid");
+        //System.out.print(triangle.getEulerLine());
         in.nextLine();
         System.exit(0);
         
