@@ -71,8 +71,11 @@ public class TrianglePoints {
         }
 
         System.out.print(triangle.getOrthocenter().getX() + "," + triangle.getOrthocenter().getY() + " is the orthocenter");
-        //System.out.print(triangle.getCircumventer().getX() + "," + triangle.getCircumventer().getY() + " is the circumventer");
-        //System.out.print(triangle.getCentroid().getX() + "," + triangle.getCentroid().getY() + " is the centroid");
+        System.out.println();
+        System.out.print(triangle.getCircumventer().getX() + "," + triangle.getCircumventer().getY() + " is the circumventer");
+        System.out.println();
+        System.out.print(triangle.getCentroid().getX() + "," + triangle.getCentroid().getY() + " is the centroid");
+         System.out.println();
         //System.out.print(triangle.getEulerLine());
         in.nextLine();
         System.exit(0);

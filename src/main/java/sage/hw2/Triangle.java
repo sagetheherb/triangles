@@ -33,7 +33,7 @@ public class Triangle {
         double x = (pointA.getX() + pointB.getX()+pointC.getX())/3;
         double y =(pointA.getY() + pointB.getY() + pointC.getY())/3;
         Point point = new Point(x, y);
-        this.orthocenter = point;
+        this.centroid = point;
     }
     private void calculateCircumventer(){
         //calculate slope from point to point from triangle
