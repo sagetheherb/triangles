@@ -104,7 +104,7 @@ public class Triangle {
 
         double slopeEulerLine = (this.orthocenter.getY() - this.centroid.getY())/(this.orthocenter.getX() - this.centroid.getX()); //y2-y1/x2-x1
         double yInterceptEulerLine = (this.orthocenter.getY() - (slopeEulerLine * this.orthocenter.getX()));
-        this.eulerLine = ("Y = " + slopeEulerLine + "X + " + yInterceptEulerLine);
+        this.eulerLine = ("Y = " + slopeEulerLine + " X + " + yInterceptEulerLine);
 
         //double slopeEulerToCircumcenter = -1.0/slopeEulerLine; // -1/slope = perpendicular
 

@@ -77,7 +77,7 @@ public class TrianglePoints {
             System.out.println();
             System.out.print("Centroid     : (" + triangle.getCentroid().getX() + "," + triangle.getCentroid().getY() + " )" );
             System.out.println();
-            System.out.print(triangle.getEulerLine());
+            System.out.print("the equation of the Euler line is " + triangle.getEulerLine());
             System.out.println();
             in.nextLine();
             System.exit(0);
