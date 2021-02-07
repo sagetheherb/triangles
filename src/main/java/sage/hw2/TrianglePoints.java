@@ -64,14 +64,14 @@ public class TrianglePoints {
 
         Triangle triangle = new Triangle(points.get(0), points.get(1), points.get(2));
         if (triangle.isCollinear()) {
-            System.out.print("the points you have entered are colinear sorry");
+            System.out.print("the points you have entered are colinear ");
             in.nextLine();
             System.exit(0);
         }
 
         System.out.print(triangle.getOrthocenter().getX() + "," + triangle.getOrthocenter().getY() + " is the orthocenter");
         System.out.print(triangle.getCircumventer().getX() + "," + triangle.getCircumventer().getY() + " is the circumventer");
-       System.out.print(triangle.getCentroid().getX() + "," + triangle.getCentroid().getY() + " is the centroid");
+        System.out.print(triangle.getCentroid().getX() + "," + triangle.getCentroid().getY() + " is the centroid");
         System.out.print(triangle.getEulerLine());
         in.nextLine();
         System.exit(0);

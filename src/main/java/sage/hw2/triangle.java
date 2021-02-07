@@ -30,9 +30,9 @@ public class Triangle {
 //Centroid of the triange is x= (x1 + x2 + x3)/3 and y= (y1+y2+y3)/3
     private void calculateCentroid() {
         double x = (pointA.getX() + pointB.getX()+pointC.getX())/3;
-        double y =(pointA.getY() + pointB.get() + pointC.getY())/3;
+        double y =(pointA.getY() + pointB.getY() + pointC.getY())/3;
         Point point = new Point(x, y);
-        this.orthocenter = point;
+        this.centroid = point;
     }
 
 
