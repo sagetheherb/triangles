@@ -70,7 +70,7 @@ public class Triangle {
 //X = (m1*x1-m2*x2 +Y2-y1)/(m1-m2)
 // Y = m1*(X-x1)+Y1
 
-        if (m1 == m2) {
+        if (slopeAC == slopeBC) {
             System.out.println("Parallel lines from the Perpendicular bi sector from mid points");
         } else {
 
