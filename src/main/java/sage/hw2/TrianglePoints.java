@@ -66,19 +66,22 @@ public class TrianglePoints {
             System.out.print("The points you have entered are collinear");
             in.nextLine();
             System.exit(0);
+        }else {
+            System.out.print("The points you have entered are not collinear");
+
+
+            System.out.println();
+            System.out.print("Orthocenter  : (" + triangle.getOrthocenter().getX() + "," + triangle.getOrthocenter().getY() + " )");
+            System.out.println();
+            System.out.print("Circumcenter : (" + triangle.getCircumcenter().getX() + "," + triangle.getCircumcenter().getY() + " )");
+            System.out.println();
+            System.out.print("Centroid     : (" + triangle.getCentroid().getX() + "," + triangle.getCentroid().getY() + " )" );
+            System.out.println();
+            System.out.print(triangle.getEulerLine());
+            System.out.println();
+            in.nextLine();
+            System.exit(0);
         }
-
-        System.out.print("( " + triangle.getOrthocenter().getX() + "," + triangle.getOrthocenter().getY() +" ) is the Orthocenter");
-        System.out.println();
-        System.out.print("(" + triangle.getCircumcenter().getX() + "," + triangle.getCircumcenter().getY() + " ) is the Circumcenter");
-        System.out.println();
-        System.out.print("( "+triangle.getCentroid().getX() + "," + triangle.getCentroid().getY() + " ) is the Centroid");
-        System.out.println();
-        System.out.print(triangle.getEulerLine());
-        System.out.println();
-        in.nextLine();
-        System.exit(0);
-
     }
 
 
