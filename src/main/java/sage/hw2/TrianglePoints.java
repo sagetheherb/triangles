@@ -1,21 +1,25 @@
 package sage.hw2;
 
 /**
- * Triangle Points 
+ * Triangle Points
  * hw2
- * Java NetBeans IDE 12.2
+ * Java intelliJ
+ * Triangle.java , Point.java
  * @author Sage Elfanbaum and Erosh Boralugodage
+ * sage.elfanbaum@gmail.com ,
  * CS4500 section 1
  * 2/8/2021
- * This program will prompt the user for three points that form a 
+ * This program will prompt the user for three points that form a
  * triangle and if it is not colinear it will calculate the triangle's
- * centroid, orthocenter and centroid. The program will then calculate 
- * the value of the biggest distance between the points. Then two of 
- * the points will be used to create a line that pass through them. 
- * Then the third point's distance to that line will be measured. 
- * TODO enter resources used to create program
- * asdf
- */
+ * centroid, orthocenter and centroid. The program will then calculate
+ * the value of the biggest distance between the points. Then two of
+ * the points will be used to create a line that pass through them.
+ * Then the third point's distance to that line will be measured.
+ * We used the followning to calculate the points.
+ * https://byjus.com/maths/orthocenter/
+ * https://byjus.com/maths/centroid-of-a-triangle/
+ * https://byjus.com/maths/circumcenter-of-a-triangle/
+ **/
 
 import java.util.Scanner;
 import java.util.ArrayList;
@@ -36,8 +40,8 @@ public class TrianglePoints {
         ArrayList<Point> points = new ArrayList<>(); //the array that holds the points that the user inputs
         int point_counter = 0;
         //this loop takes in three points from the user
-        while (true){
-            try { // makes sure the input is a double 
+        do {
+            try { // makes sure the input is a double
                 double tempX = 0.0; //holds the value that the user inputs
                 double tempY = 0.0; //holds the value that the user inputs
                 System.out.println(" please enter a number for a point");
@@ -50,18 +54,12 @@ public class TrianglePoints {
                 points.add(point);
                 point_counter++;
 
-            }
-
-            catch(Exception InputMismatchException) {
+            } catch (Exception InputMismatchException) {
                 System.out.println(" please enter a decimal number i.e. 1.2");
                 in.next();
             }
 
-            if(point_counter >= 3){
-                break;
-            }
-
-        }
+        } while (point_counter < 3);
         // the triangle object holds the input points and calculates the rest of the points and the euler line
         Triangle triangle = new Triangle(points.get(0), points.get(1), points.get(2));
         if (triangle.isCollinear()){

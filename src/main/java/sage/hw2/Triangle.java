@@ -10,7 +10,7 @@ public class Triangle {
     private Point circumcenter;
     private String eulerLine;
 
-    // this is the constructer that takes in input and calulates the three points and the euler line
+    // this is the constructor that takes in input and calulates the three points and the euler line
     public Triangle(Point pointA, Point pointB, Point pointC) {
 
         this.pointA = pointA;
