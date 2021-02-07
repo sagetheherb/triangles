@@ -9,6 +9,7 @@ public class Triangle {
     private Point centroid;
     private Point circumcenter;
     private String eulerLine;
+    private double eulerLineToThirdPoint;
 
     // this is the constructor that takes in input and calulates the three points and the euler line
     public Triangle(Point pointA, Point pointB, Point pointC) {
@@ -100,6 +101,12 @@ public class Triangle {
 
     }
     private void calculateEulerLine(){
+
+        double slopeEulerLine = (this.orthocenter.getY() - this.centroid.getY())/(this.orthocenter.getX() - this.centroid.getX()); //y2-y1/x2-x1
+        double yInterceptEulerLine = (this.orthocenter.getY() - (slopeEulerLine * this.orthocenter.getX()));
+        this.eulerLine = ("Y = " + slopeEulerLine + "X + " + yInterceptEulerLine);
+
+        //double slopeEulerToCircumcenter = -1.0/slopeEulerLine; // -1/slope = perpendicular
 
     }
 
