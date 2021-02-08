@@ -50,7 +50,6 @@ public class TrianglePoints {
                 tempY = in.nextDouble();
                 Point point = new Point(tempX, tempY); //One point the user inputs
                 System.out.println("( " + point.getX() + "," + point.getY() + " ) for " +(point_counter +1) + " point " );
-              //  System.out.println(point.getY() + " y value");
                 points.add(point);
                 point_counter++;
 
@@ -63,29 +62,22 @@ public class TrianglePoints {
 
         // the triangle object holds the input points and calculates the rest of the points and the euler line
         Triangle triangle = new Triangle(points.get(0), points.get(1), points.get(2));
-        if (triangle.isCollinear()){
-            System.out.print("The points you have entered are collinear");
-            in.nextLine();
-            System.exit(0);
-        }else {
-            System.out.print("The points you have entered are not collinear");
 
+        System.out.println();
+        System.out.print("Orthocenter  : (" + triangle.getOrthocenter().getX() + "," + triangle.getOrthocenter().getY() + " )");
+        System.out.println();
+        System.out.print("Circumcenter : (" + triangle.getCircumcenter().getX() + "," + triangle.getCircumcenter().getY() + " )");
+        System.out.println();
+        System.out.print("Centroid     : (" + triangle.getCentroid().getX() + "," + triangle.getCentroid().getY() + " )" );
+        System.out.println();
+        System.out.print("The Equation of the Euler line that passes through the Orthocenter and Centroid is " + triangle.getEulerLine());
+        System.out.println();
+        System.out.print("The percentage error is  " + triangle.getPercentageError() + "%");
+        System.out.println();
 
-            System.out.println();
-            System.out.print("Orthocenter  : (" + triangle.getOrthocenter().getX() + "," + triangle.getOrthocenter().getY() + " )");
-            System.out.println();
-            System.out.print("Circumcenter : (" + triangle.getCircumcenter().getX() + "," + triangle.getCircumcenter().getY() + " )");
-            System.out.println();
-            System.out.print("Centroid     : (" + triangle.getCentroid().getX() + "," + triangle.getCentroid().getY() + " )" );
-            System.out.println();
-            System.out.print("The Equation of the Euler line that passes through the Orthocenter and Centroid is " + triangle.getEulerLine());
-            System.out.println();
-            System.out.print("The percentage error is  " + triangle.getPercentageError() + "%");
-            System.out.println();
-            in.nextLine();
-            System.exit(0);
-        }
+        in.nextLine();
+        System.exit(0);
     }
-
-
 }
+
+

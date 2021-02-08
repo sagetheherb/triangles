@@ -1,9 +1,11 @@
 package sage.hw2;
 
 import java.lang.Math;
+import java.util.Scanner;
 
 // the triangle object holds the input points and calculates the rest of the points and the euler line
 public class Triangle {
+    Scanner in = new Scanner(System.in);
     private final Point pointA;
     private final Point pointB;
     private final Point pointC;
@@ -20,10 +22,18 @@ public class Triangle {
         this.pointA = pointA;
         this.pointB = pointB;
         this.pointC = pointC;
-        calculateOrthocenter();
-        calculateCentroid();
-        calculateCircumcenter();
-        calculateEulerLine();
+
+        if(isCollinear()){
+            System.out.println("the points you have entered are collinear so the points cannot be found ");
+            in.nextLine();
+            System.exit(0);
+        }
+        else{
+            calculateOrthocenter();
+            calculateCentroid();
+            calculateCircumcenter();
+            calculateEulerLine();
+        }
         //TODO round these
 
     }
@@ -73,6 +83,7 @@ public class Triangle {
 
         if (slopeAC == slopeBC) {
             System.out.println("Parallel lines");
+            System.exit(0);
         } else {
 
             double x = (slopePerpBiSecAC * midPointACX - slopePerpBiSecBC * midPointBCX + midPointBCY - midPointACY) / (slopePerpBiSecAC - slopePerpBiSecBC);
@@ -118,6 +129,7 @@ public class Triangle {
         double distanceBetweenOrthocenterAndCentroid = Math.sqrt(Math.pow(this.orthocenter.getX() - this.centroid.getX(), 2)/(Math.pow(this.orthocenter.getY() - this.centroid.getY(), 2)));
 
         this.percentageError = 100 * Math.round((this.eulerLineToCircumcenter / distanceBetweenOrthocenterAndCentroid) * 100.00) / 100.00;
+
     }
 
     public Point getOrthocenter(){
@@ -148,9 +160,13 @@ public class Triangle {
 
 
     public boolean isCollinear(){
+        //using the formula = x1 * (y2 - y3) + x2 * (y3 - y1) + x3 * (y1 - y2) to find if it is collinear
 
-        //TODO write this
-        return false;
+        double collinear = (pointA.getX() * (pointB.getY()) - pointC.getY())
+                            + (pointB.getX() * (pointC.getY()) - pointA.getY())
+                            + (pointC.getX() * (pointA.getY()) - pointB.getY());
+
+        return collinear == 0;
 
     }
     public boolean isEquilateral(){
