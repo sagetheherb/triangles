@@ -70,11 +70,19 @@ public class TrianglePoints {
         System.out.println();
         System.out.print("Centroid     : (" + triangle.getCentroid().getX() + "," + triangle.getCentroid().getY() + " )" );
         System.out.println();
-        System.out.print("The Equation of the Euler line that passes through the Orthocenter and Centroid is " + triangle.getEulerLine());
-        System.out.println();
-        System.out.print("The percentage error is  " + triangle.getPercentageError() + "%");
-        System.out.println();
+        if(triangle.isEquilateral()){
+            System.out.print("the triangle you have entered is equilateral ");
+            //TODO erosh print out a message telling the interactive user the absolute value of the biggest distance between the three calculated centers of that triangle
+        }
+        else {
+            System.out.print("The Equation of the Euler line that passes through the Orthocenter and Centroid is " + triangle.getEulerLine());
+            System.out.println();
+            System.out.print("The closest distance from the Circumcenter to the Euler Line is " + triangle.getEulerLineToCircumcenter());
+            System.out.println();
+            System.out.print("The percentage error is  " + triangle.getPercentageError() + "%");
+        }
 
+        System.out.println();
         in.nextLine();
         System.exit(0);
     }

@@ -24,7 +24,7 @@ public class Triangle {
         this.pointC = pointC;
 
         if(isCollinear()){
-            System.out.println("the points you have entered are collinear so the points cannot be found ");
+            System.out.println("ERROR: The points you have entered are collinear so the points cannot be found ");
             in.nextLine();
             System.exit(0);
         }
@@ -155,7 +155,14 @@ public class Triangle {
 
     }
     public double getPercentageError(){
+
         return this.percentageError;
+
+    }
+    public double getEulerLineToCircumcenter(){
+
+        return this.eulerLineToCircumcenter;
+
     }
 
 
@@ -170,7 +177,7 @@ public class Triangle {
 
     }
     public boolean isEquilateral(){
-
+                //if all of the points are in the same place then it is an equilateral triangle.
         return (this.centroid.getX() == this.circumcenter.getX()
                 && this.circumcenter.getX() == this.orthocenter.getX()
                 && this.centroid.getY() == this.circumcenter.getY()
