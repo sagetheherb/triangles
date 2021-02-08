@@ -78,9 +78,9 @@ public class TrianglePoints {
             System.out.println();
             System.out.print("Centroid     : (" + triangle.getCentroid().getX() + "," + triangle.getCentroid().getY() + " )" );
             System.out.println();
-            System.out.print("the equation of the Euler line that passes through the Orthocenter and Centroid is " + triangle.getEulerLine());
+            System.out.print("The Equation of the Euler line that passes through the Orthocenter and Centroid is " + triangle.getEulerLine());
             System.out.println();
-            System.out.print("the Distance from the Euler line to the Circumcenter is " + triangle.getEulerLineToCircumcenter());
+            System.out.print("The percentage error is  " + triangle.getPercentageError() + "%");
             System.out.println();
             in.nextLine();
             System.exit(0);

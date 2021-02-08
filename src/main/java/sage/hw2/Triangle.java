@@ -12,6 +12,7 @@ public class Triangle {
     private Point circumcenter;
     private String eulerLine;
     private double eulerLineToCircumcenter;
+    private double percentageError;
 
     // this is the constructor that takes in input and calulates the three points and the euler line
     public Triangle(Point pointA, Point pointB, Point pointC) {
@@ -23,12 +24,13 @@ public class Triangle {
         calculateCentroid();
         calculateCircumcenter();
         calculateEulerLine();
+        //TODO round these
 
     }
 
     private void calculateCentroid(){   // this will calulate the centroid
 
-        double x = (pointA.getX() + pointB.getX()+pointC.getX())/3;
+        double x = (pointA.getX() + pointB.getX()+pointC.getX())/3; //TODO comment this
         double y =(pointA.getY() + pointB.getY() + pointC.getY())/3;
         Point point = new Point(x, y);
         this.centroid = point;
@@ -56,18 +58,18 @@ public class Triangle {
         double midPointACY = (pointA.getY() +pointC.getY())/2;
 
 
-// equation for perpendicular bisector going through mid point of side1 (x1,y1) and circumcenter (X,Y)
-//  (Y-y1) = m1(X-x1)
-//   Y = m1(X-x1) + Y1
+        // equation for perpendicular bisector going through mid point of side1 (x1,y1) and circumcenter (X,Y)
+        //  (Y-y1) = m1(X-x1)
+        //   Y = m1(X-x1) + Y1
 
-// equation flor perpendicular bisector going through mid point of side2 (x2,y2) and circumcenter (X,Y)
-//  (Y-y2) = m1(X-x2)
-//   Y = m2(X-x2) + Y2
+        // equation for perpendicular bisector going through mid point of side2 (x2,y2) and circumcenter (X,Y)
+        //  (Y-y2) = m1(X-x2)
+        //   Y = m2(X-x2) + Y2
 
-//find the point of intersection of two lines
-// m1(X-x1) + y1  = m2(X-x2) + y2
-//X = (m1*x1-m2*x2 +Y2-y1)/(m1-m2)
-// Y = m1*(X-x1)+Y1
+        //find the point of intersection of two lines
+        // m1(X-x1) + y1  = m2(X-x2) + y2
+        //X = (m1*x1-m2*x2 +Y2-y1)/(m1-m2)
+        // Y = m1*(X-x1)+Y1
 
         if (slopeAC == slopeBC) {
             System.out.println("Parallel lines");
@@ -112,6 +114,10 @@ public class Triangle {
         //D = | (-1 * this.circumcenter.getY()) + (slopeEulerLine * this.circumcenter.getX()) + yInterceptEulerLine | / SqurRoot ((-1^2) + (slopeEulerLine * X)
         this.eulerLineToCircumcenter = Math.abs((-1 * this.circumcenter.getY()) + (slopeEulerLine * this.circumcenter.getX()) + yInterceptEulerLine) /(Math.sqrt((-1 * -1) + (slopeEulerLine * slopeEulerLine)));
 
+        //D = squareroot of (x2 - x1)^2 + (y2 -y1)^2 is the distance between points
+        double distanceBetweenOrthocenterAndCentroid = Math.sqrt(Math.pow(this.orthocenter.getX() - this.centroid.getX(), 2)/(Math.pow(this.orthocenter.getY() - this.centroid.getY(), 2)));
+
+        this.percentageError = 100 * Math.round((this.eulerLineToCircumcenter / distanceBetweenOrthocenterAndCentroid) * 100.00) / 100.00;
     }
 
     public Point getOrthocenter(){
@@ -136,17 +142,19 @@ public class Triangle {
         return this.eulerLine;
 
     }
-    public double getEulerLineToCircumcenter() {
-        return eulerLineToCircumcenter;
+    public double getPercentageError(){
+        return this.percentageError;
     }
 
 
     public boolean isCollinear(){
+
+        //TODO write this
         return false;
 
     }
     public boolean isEquilateral(){
-        //to do make this work (round the numbers)
+
         return (this.centroid.getX() == this.circumcenter.getX()
                 && this.circumcenter.getX() == this.orthocenter.getX()
                 && this.centroid.getY() == this.circumcenter.getY()
