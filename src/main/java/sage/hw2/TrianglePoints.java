@@ -60,6 +60,7 @@ public class TrianglePoints {
             }
 
         } while (point_counter < 3);
+
         // the triangle object holds the input points and calculates the rest of the points and the euler line
         Triangle triangle = new Triangle(points.get(0), points.get(1), points.get(2));
         if (triangle.isCollinear()){
@@ -77,7 +78,9 @@ public class TrianglePoints {
             System.out.println();
             System.out.print("Centroid     : (" + triangle.getCentroid().getX() + "," + triangle.getCentroid().getY() + " )" );
             System.out.println();
-            System.out.print("the equation of the Euler line is " + triangle.getEulerLine());
+            System.out.print("the equation of the Euler line that passes through the Orthocenter and Centroid is " + triangle.getEulerLine());
+            System.out.println();
+            System.out.print("the Distance from the Euler line to the Circumcenter is " + triangle.getEulerLineToCircumcenter());
             System.out.println();
             in.nextLine();
             System.exit(0);

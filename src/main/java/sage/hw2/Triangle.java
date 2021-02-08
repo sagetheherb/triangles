@@ -1,5 +1,7 @@
 package sage.hw2;
 
+import java.lang.Math;
+
 // the triangle object holds the input points and calculates the rest of the points and the euler line
 public class Triangle {
     private final Point pointA;
@@ -9,7 +11,7 @@ public class Triangle {
     private Point centroid;
     private Point circumcenter;
     private String eulerLine;
-    private double eulerLineToThirdPoint;
+    private double eulerLineToCircumcenter;
 
     // this is the constructor that takes in input and calulates the three points and the euler line
     public Triangle(Point pointA, Point pointB, Point pointC) {
@@ -106,7 +108,9 @@ public class Triangle {
         double yInterceptEulerLine = (this.orthocenter.getY() - (slopeEulerLine * this.orthocenter.getX()));
         this.eulerLine = ("Y = " + slopeEulerLine + " X + " + yInterceptEulerLine);
 
-        //double slopeEulerToCircumcenter = -1.0/slopeEulerLine; // -1/slope = perpendicular
+        //D = | Ax + By + C|/squareroot of A^2 + B^2
+        //D = | (-1 * this.circumcenter.getY()) + (slopeEulerLine * this.circumcenter.getX()) + yInterceptEulerLine | / SqurRoot ((-1^2) + (slopeEulerLine * X)
+        this.eulerLineToCircumcenter = Math.abs((-1 * this.circumcenter.getY()) + (slopeEulerLine * this.circumcenter.getX()) + yInterceptEulerLine) /(Math.sqrt((-1 * -1) + (slopeEulerLine * slopeEulerLine)));
 
     }
 
@@ -132,6 +136,10 @@ public class Triangle {
         return this.eulerLine;
 
     }
+    public double getEulerLineToCircumcenter() {
+        return eulerLineToCircumcenter;
+    }
+
 
     public boolean isCollinear(){
         return false;
